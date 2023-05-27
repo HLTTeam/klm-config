@@ -1,7 +1,17 @@
-
+server:
+  port: 8083
+  
 spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: kyl
   application:
-    name: Config-Dev
+    name: kyl-user-profile-service
+# To connect config server to get configurations
+  config:
+    import: optional:configserver:http://localhost:8085
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -10,3 +20,5 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+      
+      
